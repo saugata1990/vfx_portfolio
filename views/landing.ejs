@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bidisha Dastider Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Montserrat|Lato|Open+Sans&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* Dark-themed styles */
+
+    body {
+      font-family: 'Roboto', sans-serif; /* Apply Roboto as the default font */
+    }
+
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif; /* Apply Montserrat for headings */
+    }
+
+    p {
+      font-family: 'Lato', sans-serif; /* Apply Lato for paragraphs/text */
+    }
+
+    /* Example usage for a specific class */
+    .portfolio-item {
+      font-family: 'Open Sans', sans-serif; /* Apply Open Sans to specific elements */
+    }
+
+
+    body {
+      /* font-family: Arial, sans-serif; */
+      margin: 0;
+      /* padding-left: 15px; */
+      background-color: #1f1f1f;
+      color: #f5f5f5;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 99%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(17, 17, 17, 0.8);
+      z-index: 1000; 
+    }
+    
+    .top-left h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #ffcc00;
+    }
+    
+    nav.top-right ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    
+    nav.top-right ul li {
+      margin-right: 20px;
+    }
+    
+    nav.top-right ul li a {
+      text-decoration: none;
+      color: #f5f5f5;
+      font-size: 16px;
+    }
+    
+     /* main {
+      padding: 10px;
+    }  */
+    
+    h2 {
+      color: #ffcc00;
+    }
+
+    .logo {
+      cursor: pointer;
+    }
+
+
+    .large-txt {
+        font-size: 60px;
+        font-weight: bold;
+        margin-bottom: 2px;
+    }
+
+    .med-txt {
+        font-size: 35px;
+        margin-bottom: 2px;
+    }
+
+    .small-txt {
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
+
+    /* Slideshow styles */
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 850px; /* Adjust height as needed */
+      overflow: hidden;
+    }
+
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    .text-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+    }
+
+    .text {
+        display: none;
+        text-align: center;
+        color: #F5F5F5
+    }
+
+    .intro-container {
+        position: absolute;
+        top: 20%;
+        left: 2%;
+        /* transform: translate(-50%, -50%); */
+        z-index: 10;
+    }
+
+   
+
+    .intro {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: left;
+        color: white;
+        display: block;
+    }
+
+
+    .text.active {
+        display: block;
+    }
+
+    .portfolio-container {
+        position: relative;
+        top: 20%;
+        left: 1%;
+        /* transform: translate(-50%, -50%); */
+        z-index: 10;
+    }
+
+    .portfolio-posters {
+      position: relative;
+    }
+
+    .image-container {
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .image-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .image-row {
+      width:auto;
+      display: flex;
+      justify-content: space-between; /* Adjust as needed: space-around, space-between, etc. */
+      align-items: center; /* Aligns items vertically */
+      animation: marquee 30s linear infinite; /* Adjust speed as needed */
+      white-space: nowrap;
+    }
+
+    .video-row {
+      margin-top: 10px;
+      position: relative;
+      width:auto;
+      display: flex;
+      justify-content: space-around; /* Adjust as needed: space-around, space-between, etc. */
+      align-items: center; /* Aligns items vertically */
+    }
+
+    .video-row h2 {
+      writing-mode:vertical-rl; /* Text direction: vertical, from right to left */
+      text-orientation:sideways; /* Text orientation: upright */
+      transform: rotate(180deg);
+      margin-bottom: 10px; /* Adjust space between heading and player */
+      margin-left: 10px;
+      align-items: right;
+    }
+
+    
+   
+
+    .image-row img {
+      width: 300px; /* Adjust width as needed */
+      height: 300px;
+      margin: 0; /* Adjust margin between images */
+    }
+
+    .dp {
+      width: 400px;
+      height: 400px;
+    }
+
+    .video-container {
+      display: block;
+      position: relative;
+      margin-top: 20px; /* Adjust margin as needed */
+      align-items: center;
+    }
+
+    .about-container {
+        position: relative;
+        top: 20%;
+        left: 1%;
+        /* transform: translate(-50%, -50%); */
+        z-index: 10;
+    }
+
+    .about-content {
+      width: auto;
+      display: flex;
+      margin-bottom: 20px;
+      justify-content:space-evenly; /* Adjust as needed: space-around, space-between, etc. */
+      align-items:center; 
+    }
+
+    .about-text {
+      max-width: 600px;
+    }
+
+    .contact-section {
+      border-top: 1px solid #444; /* Border for the top */
+      margin-bottom: 20px;
+    }
+
+    .contact-container {
+        position: relative;
+        top: 20%;
+        left: 1%;
+        /* transform: translate(-50%, -50%); */
+        z-index: 10;
+    }
+
+    .contact-content {
+      width: auto;
+      display: flex;
+      margin-top: 10px;
+      justify-content: space-evenly; /* Adjust as needed: space-around, space-between, etc. */
+      align-items:center; 
+    }
+
+    
+    .contact-link {
+      color: #fff; /* Link text color */
+      text-decoration: none;
+      transition: color 0.3s ease; /* Smooth transition for link color */
+    }
+
+    .contact-link:hover {
+      color: #ffcc00; /* Change link color on hover */
+    }
+
+
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0%);
+      }
+      5% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform:  translateX(-50%); /* Adjust distance based on image width */
+      }
+    }
+
+    
+    
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+
+
+/* Add this at the end of your CSS file */
+
+/* Responsive styles for smaller screens */
+
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Adjust base font size for smaller screens */
+  }
+
+  header {
+    padding: 10px; /* Adjust header padding */
+  }
+
+  .top-left h1 {
+    font-size: 20px; /* Adjust logo font size */
+  }
+
+  nav.top-right ul {
+    flex-direction: column; /* Stack navigation links vertically */
+    align-items: center;
+    padding: 0;
+  }
+
+  nav.top-right ul li {
+    margin: 10px 0;
+  }
+
+  .slideshow {
+    height: 500px; /* Adjust slideshow height */
+  }
+
+  .text-container,
+  .intro-container,
+  .portfolio-container,
+  .about-container,
+  .contact-container {
+    top: 10%; /* Adjust section positions */
+  }
+
+  .intro {
+    text-align: center; /* Center align intro text */
+  }
+
+  .portfolio-posters {
+    overflow-x: auto; /* Allow horizontal scrolling for images */
+    white-space: nowrap;
+  }
+
+  .portfolio-posters img {
+    width: 200px; /* Adjust image size */
+    height: auto;
+    margin: 0 5px; /* Adjust margin between images */
+  }
+
+  .dp {
+    width: 300px; /* Adjust profile picture size */
+    height: auto;
+  }
+
+  .about-content {
+    flex-direction: column; /* Stack about content */
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%; /* Adjust about text width */
+    margin-top: 20px;
+  }
+
+  .contact-content {
+    flex-direction: column; /* Stack contact icons */
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-link {
+    margin: 10px 0;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-left">
+      <h1 class="large-txt logo" id="logo">BIDISHA DASTIDER</h1>
+    </div>
+    <nav class="top-right">
+      <ul>
+        <li><a href="#home" id="home">Home</a></li>
+        <li><a href="BIDISHA DASTIDER_RESUME.pdf" target="_blank">Resume</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <script>
+      /*
+      document.getElementById('home').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevents default anchor behavior
+
+        // Scrolls back to the top smoothly
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        history.replaceState(null, null, ' ');
+      });
+      */
+
+      // Function to handle scroll to top
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        history.replaceState(null, null, ' ');
+      }
+
+      // Adding click event listeners to multiple elements
+      document.getElementById('home').addEventListener('click', function(event) {
+        event.preventDefault();
+        scrollToTop();
+      });
+
+      // Add another element's event listener here
+      document.getElementById('logo').addEventListener('click', function(event) {
+        event.preventDefault();
+        scrollToTop();
+      });
+
+
+    </script>
+  </header>
+
+  <main>
+    <section class="carousel-section">
+      <!-- Image slideshow -->
+      <div class="slideshow">
+        <img class="active" src="image1.png" alt="Image 1">
+        <img src="image2.png" alt="Image 2">
+        <img src="image3.png" alt="Image 3">
+        <img src="image4.png" alt="Image 4">
+        <img src="image5.png" alt="Image 5">
+        <img src="image6.png" alt="Image 5">
+        <img src="image7.png" alt="Image 5">
+        <img src="image8.png" alt="Image 5">
+        <img src="image9.png" alt="Image 5">
+        <img src="image10.png" alt="Image 5">
+        <img src="image11.png" alt="Image 5">
+        <img src="image12.png" alt="Image 5">
+        <!-- Add more images as needed -->
+      </div>
+
+      <div class="intro-container">
+        <div class="intro">
+          <div class="small-txt">CGI & VFX Lighting / Rendering / Look Development / Compositing</div>
+          <div class="large-txt">Bidisha Dastider</div>
+          <p class="med-txt">Bringing Characters & Stories to Life</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio-section">
+      <div class="portfolio-container">
+        <h2 class="med-txt">My Portfolio</h2>
+        <div class="portfolio-posters">
+          <div class="image-container">
+            <div class="image-row" id="imageRow">
+              <img src="dune.jpg" alt="Image 6">
+              <img src="citadel.jpg" alt="Image 7">
+              <img src="brahmastra.jpg" alt="Image 8">
+              <img src="flash.jpg" alt="Image 9">
+              <img src="upin_ipin.jpg" alt="Image 10">
+              <img src="Roadside_Romeo.jpg" alt="Image 11">
+              <img src="AlphaOmega.jpg" alt="Image 12">
+              <img src="speed_racer.jpg" alt="Image 13">
+              <img src="one_stormy_night.jpg" alt="Image 14">
+              <img src="spongebob.jpg" alt="Image 15">
+
+  
+              <!-- Add more images as needed -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- Embedded demo reels or videos -- vfx demo reel followed by animation demo reel -->
+
+      <div class="video-container">
+        <div class="video-row">
+          <h2 class="large-txt">VFX Showreel</h2>
+          <div id="player1"></div>
+        </div>
+        
+        <div class="video-row">
+          <h2 class="large-txt">Animation Showreel</h2>
+          <div id="player2"></div>
+        </div>
+      </div>
+      <script>
+        // Load the YouTube iframe API asynchronously
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Function to create the YouTube player
+        let players = [];
+        playFunc = (playername, videoID) => {
+          return new YT.Player(playername, {
+            height: '720',
+            width: '1280',
+            videoId: videoID, // Replace with your YouTube video ID
+            playerVars: {
+              'autoplay': 0, // Autoplay setting (0 or 1)
+              'controls': 1, // Show video controls (0 or 1)
+              // Additional parameters here
+            },
+            events: {
+              // Add event listeners or handlers here
+            }
+          });
+        }
+        function onYouTubeIframeAPIReady() {
+          players.push(playFunc(player1, 'OOQq8fM8wyY'));
+          players.push(playFunc(player2, 'GSXbnKlQxSU'))
+        }
+
+      </script>
+    </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-container">
+        <h2 class="med-txt">About Me</h2>
+        <div class="about-content">
+          <img class="dp" src="profile_pic.jpg" alt="profilepic">
+          <p class="about-text small-txt">I'm a seasoned 3D Lighting and Rendering Artist with a distinct passion for storytelling through visual effects. 
+            With a vibrant journey across world-class studios such as DNEG Redefine, Les Copaque, Polygon picture sappi, and more,
+             I've had the privilege of illuminating narratives across various spectrums - from animated wonders to VFX masterpieces.
+            My craft is an amalgamation of technical precision, honed by proficiency in tools like Clarisse, Houdini, Maya, Arnold, V-Ray,
+             Renderman, and Nuke, and a deep-seated creative instinct. This balance has driven my contributions to renowned projects like 
+             Warner Brothers' The Flash, Dune2 (Hollywood VFX Movies), Citadel thriller series (VFX), Upin & Ipin The Movie', 
+             'Organic Animals', and 'Knight of Sidonia' (Animation) to name a few.
+            
+            Beyond the screen, I'm a relentless explorer, constantly pushing boundaries and aiming for the zenith of visual excellence. Collaboration is the heart of my approach. Whether it's teaming up with directors to refine a look, aiding fellow artists, or mentoring the next wave of talent, I believe in the power of collective brilliance.</p>
+        </div>
+      </div>
+      
+      <!-- About section content -->
+      <!-- Replace with your about content -->
+    </section>
+  </main>
+
+  <footer>
+    <section class="contact-section" id="contact">
+      <div class="contact-container">
+        <h2 class="med-txt">Contact</h2>
+        <div class="contact-content">
+          <a href="mailto:bidisha.dastider@gmail.com" class="contact-link">
+            <i class="fa fa-envelope fa-6x"></i> <!-- Font Awesome envelope icon -->
+          </a>
+          <a href="https://www.linkedin.com/in/bidisha-dastider-91236517/" class="contact-link">
+            <i class="fa-brands fa-linkedin fa-6x"></i> <!-- Font Awesome LinkedIn icon -->
+          </a>
+          
+        </div>
+      </div>
+    </section>
+  </footer>
+
+  
+
+  <script>
+    // JavaScript for image slideshow
+    const images = document.querySelectorAll('.slideshow img');
+
+    let currentImage = 0;
+
+    function nextImage() {
+      images[currentImage].classList.remove('active');
+      currentImage = (currentImage + 1) % images.length;
+      images[currentImage].classList.add('active');
+    }
+
+    setInterval(nextImage, 5000); // Change image every 5 seconds (5000ms)
+  </script>
+</body>
+</html>
